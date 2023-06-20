@@ -7,6 +7,8 @@ readme = "README.md"
 
 [tool.poetry.dependencies]
 python = "^3.8"
+pillow = "^9.5.0"
+webcolors = "^1.13"
 
 
 [build-system]
