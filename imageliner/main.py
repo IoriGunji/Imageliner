@@ -1,10 +1,10 @@
-import image_liner
 import sys
 import re
 import configparser
 import tkinter as tk
 import tkinter.messagebox as mb
 from tkinterdnd2 import DND_FILES, TkinterDnD
+from imageliner import image_liner
 
 
 def main():
