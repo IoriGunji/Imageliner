@@ -6,10 +6,11 @@ authors = ["IoriGunji-Vantiq <igunji@vantiq.com>"]
 readme = "README.md"
 
 [tool.poetry.dependencies]
-python = "^3.8"
-pillow = "^9.5.0"
+python = ">=3.11,<3.13"
+pillow = "^10.0.1"
 webcolors = "^1.13"
-
+tkinterdnd2 = "^0.3.0"
+pyinstaller = "^6.0.0"
 
 [build-system]
 requires = ["poetry-core"]
