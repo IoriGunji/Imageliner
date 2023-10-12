@@ -20,7 +20,7 @@ def main():
                 image_edit(file, BORDER_SIZE, COLOR)
 
 
-def image_edit(img_path: str, border: str, color: str):
+def image_edit(img_path: str, border: int, color: str):
     img = Image.open(img_path)
     dir, file = os.path.split(img_path)
     output = 'resized'
@@ -29,7 +29,7 @@ def image_edit(img_path: str, border: str, color: str):
     new_img.save(os.path.join(dir, output, file), quality = 100)
 
 
-def add_border(pil_img: Image, border: str, color: str):
+def add_border(pil_img: Image, border: int, color: str):
     return campus_resize(pil_img, border, border, border, border, color)
 
 
