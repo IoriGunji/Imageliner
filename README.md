@@ -10,7 +10,7 @@
 
 pyproject.toml を下記のように修正
 
-```pyproject.toml
+```diff
 [tool.poetry.dependencies]
 - python = "^3.11"
 + python = "^3.11,<3.13"
@@ -58,5 +58,5 @@ PyInstaller で実行ファイルを作成する場合は、次のオプショ�
 例
 
 ```shell
-poetry run pyinstaller ./imageliner/main.py --name ImageLiner --onefile --noconsole --icon=./imageliner/icon.ico --collect-data tkinterdnd2 --additional-hooks-dir ./imageliner --hidden-import ./imageliner/image_liner.py
+poetry run pyinstaller ./imageliner/main.py --name ImageLiner --onefile --noconsole --icon=./imageliner/icon.ico --collect-data tkinterdnd2 --additional-hooks-dir ./imageliner
 ```
