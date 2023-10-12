@@ -1,21 +1,8 @@
 import image_liner
-import os
-import re
-import glob
-from typing import Final, List
-from PIL import Image
-import webcolors
-import configparser
-
-import os
 import sys
 import re
-import ctypes
-import glob
-import winreg
-import shutil
+import configparser
 import tkinter as tk
-import tkinter.filedialog as fd
 import tkinter.messagebox as mb
 from tkinterdnd2 import DND_FILES, TkinterDnD
 
@@ -30,7 +17,7 @@ def gui(config):
     # ウィンドウ設定
     root = TkinterDnD.Tk()
     root.title('ImageLiner')
-    root.geometry('400x130')
+    root.geometry('330x100')
     default_color = root.cget("bg")
 
     # 変数宣言
@@ -40,28 +27,31 @@ def gui(config):
     size.set(config['size'])
 
     # ボーダー設定
-    border_frame = tk.Frame(root, height=100, width=150, pady=10, padx=10, relief=tk.SOLID, bg=default_color, bd=1)
+    border_frame = tk.Frame(root, height=80, width=150, pady=10, padx=10, relief=tk.SOLID, bg=default_color, bd=1)
     border_frame.place(x=10, y=10)
 
     border_color_label = tk.Label(border_frame, text='Color：')
-    border_color_label.place(x=0, y=5)
+    border_color_label.place(x=0, y=10)
     border_color_input = tk.Entry(border_frame, textvariable=color, readonlybackground='white', justify=tk.CENTER)
     border_color_input.configure(validate='key', vcmd=(border_color_input.register(pre_validation_color), '%s', '%P'))
-    border_color_input.place(x=50, y=5, width=60, height=21)
+    border_color_input.place(x=50, y=10, width=60, height=21)
 
     border_size_label = tk.Label(border_frame, text='Size  ：')
-    border_size_label.place(x=0, y=30)
+    border_size_label.place(x=0, y=35)
     border_size_input = tk.Entry(border_frame, textvariable=size, readonlybackground='white', justify=tk.CENTER)
     border_size_input.configure(validate='key', vcmd=(border_size_input.register(pre_validation_size), '%s', '%P'))
-    border_size_input.place(x=50, y=30, width=60, height=21)
+    border_size_input.place(x=50, y=35, width=60, height=21)
     border_size_unit = tk.Label(border_frame, text='px')
-    border_size_unit.place(x=110, y=30)
+    border_size_unit.place(x=110, y=35)
 
     # ドロップエリア
-    drop_frame = tk.Frame(root, height=100, width=150, pady=10, padx=10, relief=tk.SOLID, bg=default_color, bd=1)
+    drop_frame = tk.Frame(root, height=80, width=150, pady=10, padx=10, relief=tk.SOLID, bg=default_color, bd=1)
     drop_frame.drop_target_register(DND_FILES)
     drop_frame.dnd_bind('<<Drop>>', lambda e: drop(e.data, color.get(), size.get()))
     drop_frame.place(x=170, y=10)
+
+    drop_label = tk.Label(drop_frame, text='* Drop image file here')
+    drop_label.place(x=65, y=30, anchor=tk.CENTER)
 
     # 各種タイトル
     border_label = tk.Label(root, text='Border settings')
