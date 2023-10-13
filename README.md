@@ -58,5 +58,5 @@ PyInstaller で実行ファイルを作成する場合は、次のオプショ�
 例
 
 ```shell
-poetry run pyinstaller ./imageliner/main.py --name ImageLiner --onefile --noconsole --icon=./imageliner/icon.ico --collect-data tkinterdnd2 --additional-hooks-dir ./imageliner
+poetry run pyinstaller ./imageliner/gui.py --name ImageLiner --onefile --noconsole --icon=./imageliner/icon.ico --collect-data tkinterdnd2 --additional-hooks-dir ./imageliner
 ```
